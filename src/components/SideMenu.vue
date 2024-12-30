@@ -1,31 +1,11 @@
 <template>
   <div class="side-menu" :class="{ active: active }">
-    
-    <ul class="nav">
-      <li v-for="nav in navs" :key="nav.id">
-        <RouterLink
-          v-if="nav.name === 'Home'"
-          to="/"
-          :class="{ active: nav.active }"
-          @click="handleNavActive(nav.id)"
-        >
-          <i class="bi bi-house-door-fill" />
-        </RouterLink>
-        <RouterLink
-          v-else
-          to="/"
-          :class="{ active: nav.active }"
-          @click="handleNavActive(nav.id)"
-          >{{ nav.name }}</RouterLink
-        >
-      </li>
-    </ul>
+    <Nav />
   </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
-import { navsData } from "@/data/navData";
+import Nav from "@/components/Nav.vue";
 
 const props = defineProps({
   active: {
@@ -33,20 +13,9 @@ const props = defineProps({
     required: true,
   },
 });
-
-const navs = ref(navsData);
-
-const handleNavActive = (id) => {
-  navs.value.map((nav) => {
-    nav.active = false;
-
-    if (nav.id === id) nav.active = true;
-    return nav;
-  });
-};
 </script>
 
-<style scoped>
+<style>
 .side-menu {
   position: fixed;
   left: -300px;
@@ -75,12 +44,12 @@ const handleNavActive = (id) => {
   gap: 25px;
 }
 
-.nav li {
+.side-menu .nav li {
   list-style: none;
   margin: 0 10px;
 }
 
-.nav li a {
+.side-menu .nav li a {
   color: #000000;
   text-decoration: none;
   font-weight: 600;
@@ -89,8 +58,8 @@ const handleNavActive = (id) => {
   transition: 0.3s;
 }
 
-.nav li:hover a,
-.nav li a.active {
+.side-menu .nav li:hover a,
+.side-menu .nav li a.active {
   color: var(--third);
 }
 </style>
