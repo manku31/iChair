@@ -8,8 +8,9 @@
           to="/"
           :class="{ active: nav.active }"
           @click="handleNavActive(nav.id)"
-          ><i class="bi bi-house-door-fill"></i
-        ></RouterLink>
+        >
+          <i class="bi bi-house-door-fill" />
+        </RouterLink>
         <RouterLink
           v-else
           to="/"
@@ -19,13 +20,16 @@
         >
       </li>
     </ul>
-    <div class="features"></div>
+    <div class="features">
+      <CartBtn />
+    </div>
   </header>
 </template>
 
 <script setup>
 import { navsData } from "@/data/data";
 import { ref } from "vue";
+import CartBtn from "@/components/CartBtn.vue";
 
 const navs = ref(navsData);
 
