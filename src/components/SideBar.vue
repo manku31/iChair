@@ -1,23 +1,3 @@
-<template>
-  <div class="sideBar">
-    <a
-      class="menu"
-      :class="{ active: active }"
-      @click.stop.prevent="handleToggleMenu"
-    >
-      <i class="bi bi-arrow-right-circle-fill" />
-    </a>
-    <ul class="sci">
-      <li v-for="sci in scis" :key="sci.id">
-        <a href="#">
-          <i :class="sci.icon" />
-        </a>
-      </li>
-    </ul>
-  </div>
-  <SideMenu :active="active" />
-</template>
-
 <script setup>
 import { scisData } from "@/data/scisData";
 import SideMenu from "@/components/SideMenu.vue";
@@ -75,3 +55,23 @@ const handleToggleMenu = () => {
   color: #000000;
 }
 </style>
+
+<template>
+  <div class="sideBar">
+    <a
+      class="menu"
+      :class="{ active: active }"
+      @click.stop.prevent="handleToggleMenu"
+    >
+      <i class="bi bi-arrow-right-circle-fill" />
+    </a>
+    <ul class="sci">
+      <li v-for="sci in scis" :key="sci.id">
+        <a href="#">
+          <i :class="sci.icon" />
+        </a>
+      </li>
+    </ul>
+  </div>
+  <SideMenu :active="active" />
+</template>

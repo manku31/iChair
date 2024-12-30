@@ -1,9 +1,3 @@
-<template>
-  <div class="side-menu" :class="{ active: active }">
-    <Nav />
-  </div>
-</template>
-
 <script setup>
 import Nav from "@/components/Nav.vue";
 
@@ -63,3 +57,9 @@ const props = defineProps({
   color: var(--third);
 }
 </style>
+
+<template>
+  <div class="side-menu" :class="{ active: active }">
+    <Nav />
+  </div>
+</template>

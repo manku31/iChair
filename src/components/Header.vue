@@ -1,13 +1,3 @@
-<template>
-  <header id="home">
-    <RouterLink to="/" class="logo">iChair</RouterLink>
-    <Nav />
-    <div class="features">
-      <CartBtn />
-    </div>
-  </header>
-</template>
-
 <script setup>
 import Nav from "@/components/Nav.vue";
 import CartBtn from "@/components/CartBtn.vue";
@@ -46,3 +36,13 @@ header {
   }
 }
 </style>
+
+<template>
+  <header id="home">
+    <RouterLink to="/" class="logo">iChair</RouterLink>
+    <Nav />
+    <div class="features">
+      <CartBtn />
+    </div>
+  </header>
+</template>

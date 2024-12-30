@@ -1,12 +1,3 @@
-<template>
-  <div class="cart-btn">
-    <RouterLink to="/cart" class="cart">
-      <i class="bi bi-cart2" />
-      <span class="count">3</span>
-    </RouterLink>
-  </div>
-</template>
-
 <script setup></script>
 
 <style scoped>
@@ -20,7 +11,7 @@
 .cart {
   font-size: 30px;
   color: #ffffff;
-  position: relative;  /* Add this */
+  position: relative; /* Add this */
 }
 
 .count {
@@ -34,8 +25,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;  /* Add this */
-  top: 7px;         /* Add this */
-  right: -37px;       /* Add this */
+  position: absolute; /* Add this */
+  top: 7px; /* Add this */
+  right: -37px; /* Add this */
 }
 </style>
+
+<template>
+  <div class="cart-btn">
+    <RouterLink to="/cart" class="cart">
+      <i class="bi bi-cart2" />
+      <span class="count">3</span>
+    </RouterLink>
+  </div>
+</template>
