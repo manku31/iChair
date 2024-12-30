@@ -1,6 +1,6 @@
 <template>
-  <header id="home">
-    <RouterLink to="/" class="logo">iChair</RouterLink>
+  <div class="side-menu" :class="{ active: active }">
+    
     <ul class="nav">
       <li v-for="nav in navs" :key="nav.id">
         <RouterLink
@@ -20,16 +20,19 @@
         >
       </li>
     </ul>
-    <div class="features">
-      <CartBtn />
-    </div>
-  </header>
+  </div>
 </template>
 
 <script setup>
-import { navsData } from "@/data/navData";
 import { ref } from "vue";
-import CartBtn from "@/components/CartBtn.vue";
+import { navsData } from "@/data/navData";
+
+const props = defineProps({
+  active: {
+    type: Boolean,
+    required: true,
+  },
+});
 
 const navs = ref(navsData);
 
@@ -44,25 +47,32 @@ const handleNavActive = (id) => {
 </script>
 
 <style scoped>
-header {
-  position: relative;
-  width: 95%;
+.side-menu {
+  position: fixed;
+  left: -300px;
+  width: 300px;
+  height: 100%;
+  padding: 30px;
+  background: var(--primary);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 30px 100px 30px 200px;
-  z-index: 1100;
+  flex-direction: column;
+  transition: 1s;
+  z-index: 1000;
 }
 
-.logo {
-  font-size: 35px;
-  color: #fff;
-  letter-spacing: 2px;
-  font-weight: 800;
+.side-menu.active {
+  left: 0;
 }
 
-.nav {
+.side-menu .nav {
+  height: 100%;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
 }
 
 .nav li {
@@ -71,7 +81,7 @@ header {
 }
 
 .nav li a {
-  color: #ffffff;
+  color: #000000;
   text-decoration: none;
   font-weight: 600;
   letter-spacing: 2px;
@@ -81,21 +91,6 @@ header {
 
 .nav li:hover a,
 .nav li a.active {
-  color: var(--primary);
-}
-
-.features {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-@media (max-width: 768px) {
-  header {
-    padding: 10px 50px;
-  }
-  .nav {
-    display: none;
-  }
+  color: var(--third);
 }
 </style>
