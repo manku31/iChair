@@ -45,6 +45,9 @@ onMounted(async () => {
   <div class="banner">
     <BannerSlide v-for="item in items" :key="item.id" :item="item" />
     <BannerSwiper :items="items" :bannerChange="handleBanner" />
+    <div>
+      <p>Prashnta</p>
+    </div>
   </div>
 </template>
 
